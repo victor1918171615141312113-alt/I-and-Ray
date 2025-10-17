@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nós</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fff1f3, #ffe3d8, #fce9ef, #f9f0ff);
+      background-size: 400% 400%;
+      animation: bgShift 16s ease-in-out infinite;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: scale(0.94);
+      animation: fadeZoom 1.2s ease forwards;
+      transition: transform 0.6s ease, box-shadow 0.6s ease, filter 0.6s ease;
+      cursor: pointer;
+      filter: brightness(0.95) saturate(1.1) sepia(0.05);
+    }
+
+    .gallery img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255,210,220,0.25), transparent 70%);
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.04) translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      filter: brightness(1.05) saturate(1.2);
+    }
+
+    @keyframes fadeZoom {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .gallery img:nth-child(odd) {
+      animation: fadeZoom 1.2s ease forwards, float 6s ease-in-out infinite;
+    }
+    .gallery img:nth-child(even) {
+      animation: fadeZoom 1.2s ease forwards, float 7s ease-in-out infinite;
+      animation-delay: 0.3s;
+    }
+
+    .caption {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 2rem;
+      color: #5f4b4b;
+      font-family: 'Dancing Script', cursive;
+      opacity: 0;
+      animation: fadeIn 2s ease 1s forwards;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(255, 200, 200, 0.4);
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <img src="/image/Nos1.jpg">
+    <img src="/image/Nos2.jpg">
+    <img src="/image/Nos3.jpg">
+    <img src="/image/Nos4.jpg">
+    <img src="/image/Nos5.jpg">
+    <img src="/image/Nos6.jpg">
+    <img src="/image/Nos7.jpg">
+    <img src="/image/Nos8.jpg">
+  </div>
+  <div class="caption">foi um dia maravilhoso, e eu adoraria repetir a dose. Cada instante parecia eterno, cada riso era mais doce, e a leveza daquele momento ficará comigo para sempre.</div>
+</body>
+</html>
